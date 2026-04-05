@@ -8,12 +8,12 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Main from "../Main/main";
+import DashBoard from "../DashBoard/dashboard";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [
-  { name: "Dashboard", href: "/", current: true },
-  { name: "Team", href: "/team", current: false },
-  { name: "Projects", href: "/projects", current: false },
+  { name: "main", href: "/", current: true },
+  { name: "Dashboard", href: "/dashboard", current: false },
 ];
 
 function classNames(...classes) {
@@ -104,12 +104,11 @@ export default function App() {
       </Disclosure>
 
       {/* ÁREA ONDE AS PÁGINAS VÃO APARECER */}
-      <main className="p-4">
+      <main className="">
         <Routes>
           <Route path="/" element={<Main />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
-          <Route path="/team" element={<div>Página do Time</div>} />
-          <Route path="/projects" element={<div>Página de Projetos</div>} />
+          <Route path="/dashboard" element={<DashBoard />} />
         </Routes>
       </main>
     </BrowserRouter>
