@@ -7,7 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Main from "../Main/main";
+import Main from "../Main/context-config";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [
@@ -104,7 +104,7 @@ export default function App() {
       </Disclosure>
 
       {/* ÁREA ONDE AS PÁGINAS VÃO APARECER */}
-      <main className="p-4">
+      <main>
         <Routes>
           <Route path="/" element={<Main />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
