@@ -1,0 +1,618 @@
+/* LLM Chat Styles */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #060e20;
+    color: #dee5ff;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #060e20;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #192540;
+    border-radius: 10px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Layout */
+.llm-chat-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #060e20;
+}
+
+/* Header */
+.llm-header {
+    background-color: rgba(6, 14, 32, 0.6);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    border-bottom: 1px solid rgba(64, 72, 93, 0.1);
+}
+
+.llm-header-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    color: #6366f1;
+}
+
+.llm-nav {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: 2rem;
+}
+
+.llm-nav a {
+    color: #94a3b8;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.llm-nav a:hover {
+    color: #a5f3fc;
+}
+
+.llm-nav a.active {
+    color: #6366f1;
+    font-weight: bold;
+    border-bottom: 2px solid #6366f1;
+    padding-bottom: 0.25rem;
+}
+
+/* Main Layout */
+.llm-main-wrapper {
+    display: flex;
+    flex: 1;
+    padding-top: 4rem;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.llm-sidebar {
+    background-color: #0f1930;
+    width: 320px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(64, 72, 93, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 64px);
+    overflow-y: auto;
+}
+
+.llm-sidebar-content {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.llm-incident-header {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.llm-incident-icon {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 110, 132, 0.1);
+    color: #ff6e84;
+}
+
+.llm-incident-title {
+    color: #6366f1;
+    font-weight: bold;
+}
+
+.llm-incident-id {
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+.llm-error-details {
+    margin-top: 2rem;
+    space-y: 1.5rem;
+}
+
+.llm-error-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #a3aac4;
+    margin-bottom: 0.25rem;
+}
+
+.llm-error-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #dee5ff;
+}
+
+.llm-severity-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.625rem;
+    font-weight: bold;
+    background-color: rgba(255, 110, 132, 0.2);
+    color: #ff6e84;
+    border: 1px solid rgba(255, 110, 132, 0.3);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-right: 0.5rem;
+}
+
+.llm-timestamp {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-family: monospace;
+}
+
+.llm-divider {
+    height: 1px;
+    background-color: rgba(64, 72, 93, 0.1);
+    margin: 1.5rem 0;
+}
+
+.llm-stack-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #6366f1;
+}
+
+.llm-stack-header-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.llm-env-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.llm-env-box {
+    background-color: #141f38;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(64, 72, 93, 0.1);
+}
+
+.llm-env-label {
+    font-size: 0.625rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.llm-env-value {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #dee5ff;
+    margin-top: 0.25rem;
+}
+
+.llm-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #94a3b8;
+}
+
+.llm-nav-item.active {
+    background-color: rgba(99, 102, 241, 0.2);
+    color: #6366f1;
+    border-left: 4px solid #6366f1;
+    padding-left: calc(1rem - 4px);
+}
+
+.llm-nav-item:hover {
+    background-color: #192540;
+}
+
+.llm-sidebar-footer {
+    margin-top: auto;
+    padding: 1rem;
+    border-top: 1px solid rgba(64, 72, 93, 0.05);
+    display: flex;
+    justify-content: space-around;
+}
+
+.llm-sidebar-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: #94a3b8;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-size: 0.625rem;
+}
+
+.llm-sidebar-btn:hover {
+    color: #a5f3fc;
+}
+
+/* Main Chat Area */
+.llm-chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #091328;
+}
+
+.llm-chat-feed {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Custom scrollbar only for the chat feed */
+.llm-chat-feed::-webkit-scrollbar {
+    width: 10px;
+}
+.llm-chat-feed::-webkit-scrollbar-track {
+    background: #071022; /* slightly darker track */
+}
+.llm-chat-feed::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #233a56, #162a3f);
+    border-radius: 12px;
+    border: 2px solid rgba(6,14,32,0.6);
+}
+.llm-chat-feed:hover::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #335a86, #22466b);
+}
+
+/* Message Styles */
+.llm-message {
+    display: flex;
+    gap: 1rem;
+    max-width: 48rem;
+}
+
+.llm-message.user {
+    flex-direction: row-reverse;
+    margin-left: auto;
+}
+
+.llm-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(64, 72, 93, 0.3);
+}
+
+.llm-avatar.agent {
+    background-color: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: #6366f1;
+}
+
+.llm-avatar.user {
+    background-color: #192540;
+}
+
+.llm-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.llm-message-bubble {
+    background-color: #0f1930;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(64, 72, 93, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.llm-message.user .llm-message-bubble {
+    background-color: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+    border-bottom-right-radius: 0;
+}
+
+.llm-message.agent .llm-message-bubble {
+    border-top-left-radius: 0;
+}
+
+.llm-message-text {
+    color: #dee5ff;
+    line-height: 1.625;
+    font-weight: 500;
+}
+
+.llm-code-highlight {
+    color: #6366f1;
+    font-family: monospace;
+}
+
+.llm-secondary-highlight {
+    color: #69f6b8;
+    font-family: monospace;
+}
+
+.llm-action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.llm-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.llm-btn-primary {
+    background-color: rgba(105, 246, 184, 0.1);
+    color: #69f6b8;
+    border: 1px solid rgba(105, 246, 184, 0.2);
+}
+
+.llm-btn-primary:hover {
+    background-color: rgba(105, 246, 184, 0.2);
+}
+
+.llm-btn-secondary {
+    background-color: #192540;
+    color: #cbd5e1;
+}
+
+.llm-btn-secondary:hover {
+    background-color: #1a2847;
+}
+
+/* Diagnostic Card */
+.llm-diagnostic-card {
+    max-width: 28rem;
+    background-color: #141f38;
+    border: 1px solid rgba(64, 72, 93, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.llm-card-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(25, 37, 64, 0.5);
+}
+
+.llm-card-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #a5f3fc;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.llm-card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.llm-diag-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.llm-diag-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 110, 132, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6e84;
+    border: 1px solid rgba(255, 110, 132, 0.2);
+}
+
+.llm-diag-text h3 {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #dee5ff;
+}
+
+.llm-diag-text p {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+}
+
+.llm-code-box {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.llm-code-label {
+    font-size: 0.625rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.llm-code {
+    font-size: 0.75rem;
+    color: #69f6b8;
+    font-family: monospace;
+    line-height: 1.5;
+}
+
+/* Input Area */
+.llm-input-area {
+    padding: 1.5rem;
+    background-color: rgba(9, 19, 40, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.llm-input-wrapper {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.llm-input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #94a3b8;
+}
+
+.llm-input {
+    width: 100%;
+    background-color: #141f38;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1rem 1rem 1rem 3rem;
+    padding-right: 4rem;
+    color: #dee5ff;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.llm-input::placeholder {
+    color: #64748b;
+}
+
+.llm-input:focus {
+    outline: 2px solid rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.llm-send-btn {
+    position: absolute;
+    right: 0.5rem;
+    padding: 0.75rem;
+    background-color: #a3a6ff;
+    border: none;
+    border-radius: 0.5rem;
+    color: #0f00a4;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(163, 166, 255, 0.2);
+}
+
+.llm-send-btn:hover {
+    background-color: #8387ff;
+}
+
+.llm-footer-text {
+    text-align: center;
+    font-size: 0.625rem;
+    color: #64748b;
+    margin-top: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Background decorations */
+.llm-bg-decoration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -10;
+}
+
+.llm-bg-glow-1 {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 40%;
+    height: 40%;
+    border-radius: 100%;
+    background-color: rgba(99, 102, 241, 0.05);
+    filter: blur(120px);
+}
+
+.llm-bg-glow-2 {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 30%;
+    height: 30%;
+    border-radius: 100%;
+    background-color: rgba(105, 246, 184, 0.05);
+    filter: blur(100px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .llm-sidebar {
+        display: none;
+    }
+
+    .llm-nav {
+        display: none;
+    }
+
+    .llm-chat-feed {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .llm-diagnostic-card {
+        max-width: 100%;
+        margin-right: 0;
+    }
+}
