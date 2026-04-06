@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 import Header from "../components/header";
 import ContextForm from "../components/context-form";
+=======
+import Header from "../../components/header";
+import ContextForm from "../../components/context-form";
+>>>>>>> Stashed changes
 
 function Main() {
   return (
