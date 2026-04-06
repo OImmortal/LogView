@@ -4,11 +4,12 @@
   "private": true,
   "dependencies": {
     "@headlessui/react": "^2.2.9",
-    "@heroicons/react": "^2.2.0",
+    "@heroicons/react": "^1.0.6",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "dependencies": "^0.0.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.14.0",
