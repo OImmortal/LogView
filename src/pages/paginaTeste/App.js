@@ -7,7 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Main from "../Main/context-config";
+import Main from "../context/context-config";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [

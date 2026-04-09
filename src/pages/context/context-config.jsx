@@ -1,12 +1,7 @@
-<<<<<<< Updated upstream
-import Header from "../components/header";
-import ContextForm from "../components/context-form";
-=======
 import Header from "../../components/header";
 import ContextForm from "../../components/context-form";
->>>>>>> Stashed changes
 
-function Main() {
+function ContextConfig() {
   return (
     
     <div className="min-h-screen flex flex-col items-center bg-[#060e20] text-white">
@@ -19,4 +14,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default ContextConfig;
