@@ -85,6 +85,34 @@ export default function ContextForm() {
                     </div>
                 </div>
 
+
+                {/*  ´DESCRIÇÃO DETALHADA DE CONTEXTO  */}
+
+                <div>
+
+                    <label className="text-2x1 text-slate-500 font-bold block mb-2">DEFINIÇÃO DETALHADA DO CONTEXTO</label>
+
+                    <div className="p-2 bg-[#141f38] rounded-lg border border-slate-800 mb-2"> 
+
+                        <textarea className="w-full p-2 bg-[#141f38] rounded-lg outline-none resize-none overflow-hidden" 
+                        placeholder="Forneça detalhes adicionais sobre o propósito deste contexto, objetivos de monitoramento ou especificidades operacionais..."
+                        maxLength={1500}
+                        onInput={(e) => {
+                            e.target.style.height = "auto";
+                            e.target.style.height = e.target.scrollHeight + "px";
+                        }}/>
+
+
+                    </div>
+                    
+                    <label className="text-sm text-slate-500 block mb-2">
+                        <i>Este texto ajuda a IA a entender melhor o propósito das regras de análise definidas para este ambiente.</i>
+                    </label>
+
+                </div>
+
+
+
                 {/* MARCAR NIVEL CE CRITICIDADE SEPARADO POR GRID / VAI CRIANDO CADA BOTÃO COM SEU NIVEL E index*/}
                 <div>
                     <label className="text-2X1 text-slate-500 font-bold block mb-5">NÍVEL DE CRITICIDADE</label>
