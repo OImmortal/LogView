@@ -7,6 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Context from "../context/context-config";
 import Main from "../Main/main";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
@@ -14,6 +15,7 @@ const navigation = [
   { name: "Dashboard", href: "/", current: true },
   { name: "Team", href: "/team", current: false },
   { name: "Projects", href: "/projects", current: false },
+  { name: "Configuração de Contexto", href: "/context", current: false },
 ];
 
 function classNames(...classes) {
@@ -104,12 +106,13 @@ export default function App() {
       </Disclosure>
 
       {/* ÁREA ONDE AS PÁGINAS VÃO APARECER */}
-      <main className="p-4">
+      <main>
         <Routes>
           <Route path="/" element={<Main />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
+          <Route path="/context" element={<Context />} />
         </Routes>
       </main>
     </BrowserRouter>
