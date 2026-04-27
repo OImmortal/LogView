@@ -112,37 +112,56 @@ function Main() {
               </div>
 
               <div className="relative w-full">
-                {/* 1. Definimos os únicos valores permitidos */}
-                {(() => {
-                  const allowedValues = [1, 5, 10];
-                  // Pegamos o índice atual (0, 1 ou 2) baseado no valor do estado
-                  const currentIndex = allowedValues.indexOf(Number(systems));
-                  // Prevenção de erro caso o estado atual não esteja na lista
-                  const safeIndex = currentIndex !== -1 ? currentIndex : 0; 
-                  return (
-                    <input
-                      type="range"
-                      min="0"
-                      max={allowedValues.length - 1} // Vai de 0 a 2
-                      step="1" // Pula de 1 em 1 índice
-                      value={safeIndex}
-                      onChange={(e) => {
-                        // Quando o usuário arrastar, pegamos o índice (0, 1 ou 2)
-                        const index = Number(e.target.value);
-                        // Atualizamos o estado com o valor real correspondente (1, 5 ou 10)
-                        setSystems(allowedValues[index]);
-                      }}
-                      className="w-full h-2 bg-[#141f38] rounded-full appearance-none cursor-pointer"
-                    />
-                  );
-                })()}
-                 {/* Atualizei as legendas para bater com os novos valores */}
-                 <div className="flex justify-between text-[10px] font-bold text-[#a3aac4] uppercase tracking-widest mt-2">
-                    <span>1 Sistema</span>
-                    <span>5 Sistemas</span>
-                    <span>10 Sistemas</span>
-                </div>
-              </div>
+  {(() => {
+    const allowedValues = [1, 5, 10];
+    const currentIndex = allowedValues.indexOf(Number(systems));
+    const safeIndex = currentIndex !== -1 ? currentIndex : 0;
+
+    return (
+      <>
+        <label
+          htmlFor="steps-range"
+          className="block mb-2.5 text-sm font-medium text-[#a3aac4]"
+        >
+          Instâncias de Sistema
+        </label>
+
+        <input
+          id="steps-range"
+          type="range"
+          min="0"
+          max={allowedValues.length - 1}
+          step="1"
+          value={safeIndex}
+          onChange={(e) => {
+            const index = Number(e.target.value);
+            setSystems(allowedValues[index]);
+          }}
+          className="
+            w-full h-2 bg-[#141f38] rounded-full appearance-none cursor-pointer
+
+            [&::-webkit-slider-thumb]:appearance-none
+            [&::-webkit-slider-thumb]:w-5
+            [&::-webkit-slider-thumb]:h-5
+            [&::-webkit-slider-thumb]:rounded-full
+            [&::-webkit-slider-thumb]:bg-[#a3a6ff]
+
+            [&::-moz-range-thumb]:w-5
+            [&::-moz-range-thumb]:h-5
+            [&::-moz-range-thumb]:rounded-full
+            [&::-moz-range-thumb]:bg-[#a3a6ff]
+          "
+        />
+      </>
+    );
+  })()}
+
+  <div className="flex justify-between text-[10px] font-bold text-[#a3aac4] uppercase tracking-widest mt-2">
+    <span>1 Sistema</span>
+    <span>5 Sistemas</span>
+    <span>10 Sistemas</span>
+  </div>
+</div>
 
             </div>
           </div>
