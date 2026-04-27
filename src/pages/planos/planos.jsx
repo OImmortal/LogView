@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CheckCircleIcon, DownloadIcon, InformationCircleIcon, PencilIcon, PlusIcon } from '@heroicons/react/solid';
 
 function Main() {
-  const [systems, setSystems] = useState(42);
+  const [systems, setSystems] = useState(5);
   const [billingCycle, setBillingCycle] = useState('monthly');
 
   const plans = [
@@ -110,21 +110,40 @@ function Main() {
                   <p className="text-3xl font-black text-white">R${estimatedPrice}<span className="text-sm font-normal text-[#a3aac4]">/mês</span></p>
                 </div>
               </div>
+
               <div className="relative w-full">
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value={systems}
-                  onChange={(e) => setSystems(e.target.value)}
-                  className="w-full h-2 bg-[#141f38] rounded-full appearance-none cursor-pointer"
-                />
-                 <div className="flex justify-between text-[10px] font-bold text-outline uppercase tracking-widest mt-2">
+                {/* 1. Definimos os únicos valores permitidos */}
+                {(() => {
+                  const allowedValues = [1, 5, 10];
+                  // Pegamos o índice atual (0, 1 ou 2) baseado no valor do estado
+                  const currentIndex = allowedValues.indexOf(Number(systems));
+                  // Prevenção de erro caso o estado atual não esteja na lista
+                  const safeIndex = currentIndex !== -1 ? currentIndex : 0; 
+                  return (
+                    <input
+                      type="range"
+                      min="0"
+                      max={allowedValues.length - 1} // Vai de 0 a 2
+                      step="1" // Pula de 1 em 1 índice
+                      value={safeIndex}
+                      onChange={(e) => {
+                        // Quando o usuário arrastar, pegamos o índice (0, 1 ou 2)
+                        const index = Number(e.target.value);
+                        // Atualizamos o estado com o valor real correspondente (1, 5 ou 10)
+                        setSystems(allowedValues[index]);
+                      }}
+                      className="w-full h-2 bg-[#141f38] rounded-full appearance-none cursor-pointer"
+                    />
+                  );
+                })()}
+                 {/* Atualizei as legendas para bater com os novos valores */}
+                 <div className="flex justify-between text-[10px] font-bold text-[#a3aac4] uppercase tracking-widest mt-2">
                     <span>1 Sistema</span>
-                    <span>50 Sistemas</span>
-                    <span>100+ Sistemas</span>
+                    <span>5 Sistemas</span>
+                    <span>10 Sistemas</span>
                 </div>
               </div>
+
             </div>
           </div>
 
