@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Main from "../Main/main";
-import LLMChat from "../LLM_Chat/llm-chat";
+import DiagnosticReport from "../DiagnosticReport/diagnostic-report";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [
@@ -111,7 +111,7 @@ export default function App() {
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
-          <Route path="/chat" element={<LLMChat />} />
+          <Route path="/diagnostic" element={<DiagnosticReport></DiagnosticReport>} />
         </Routes>
       </main>
     </BrowserRouter>
