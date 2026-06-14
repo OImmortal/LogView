@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+    "lucide-react": "^1.7.0",
     "dependencies": "^0.0.1",
     "imask": "^7.6.1",
     "react": "^19.2.4",

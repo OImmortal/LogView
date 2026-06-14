@@ -7,6 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import Main from "../Main/main";
+import UserManagement from "../GerirUsuario/gerirUsuario";
 import DiagnosticReport from "../DiagnosticReport/diagnostic-report";
 import Planos from "../planos/planos";
 
@@ -108,7 +109,7 @@ export default function App() {
       <main className="">
       <main>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<UserManagement />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
