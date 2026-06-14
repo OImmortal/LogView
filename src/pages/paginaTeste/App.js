@@ -6,7 +6,6 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Main from "../Main/main";
 import Planos from "../planos/planos";
 
@@ -15,7 +14,6 @@ const navigation = [
   { name: "Dashboard", href: "/", current: true },
   { name: "Team", href: "/team", current: false },
   { name: "Projects", href: "/projects", current: false },
-  { name: "Planos", href: "/planos", current: false },
 ];
 
 function classNames(...classes) {
@@ -112,7 +110,6 @@ export default function App() {
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
-	  <Route path="/planos" element={<Planos />} />
         </Routes>
       </main>
     </BrowserRouter>
