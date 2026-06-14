@@ -7,15 +7,15 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import Main from "../Main/main";
+import DashBoard from "../DashBoard/dashboard";
 import UserManagement from "../GerirUsuario/gerirUsuario";
 import DiagnosticReport from "../DiagnosticReport/diagnostic-report";
 import Planos from "../planos/planos";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [
-  { name: "Dashboard", href: "/", current: true },
-  { name: "Team", href: "/team", current: false },
-  { name: "Projects", href: "/projects", current: false },
+  { name: "main", href: "/", current: true },
+  { name: "Dashboard", href: "/dashboard", current: false },
 ];
 
 function classNames(...classes) {
@@ -111,6 +111,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<UserManagement />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
+          <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
           <Route path="/diagnostic" element={<DiagnosticReport></DiagnosticReport>} />
