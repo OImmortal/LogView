@@ -6,9 +6,10 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Main from "../Main/main";
 import UserManagement from "../GerirUsuario/gerirUsuario";
+import DiagnosticReport from "../DiagnosticReport/diagnostic-report";
+import Planos from "../planos/planos";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
 const navigation = [
@@ -28,7 +29,7 @@ export default function App() {
       {/* MENU DE NAVEGAÇÃO */}
       <Disclosure
         as="nav"
-        className="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+        className="fixed top-0 w-full z-50 bg-[#091328]"
       >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
@@ -37,11 +38,11 @@ export default function App() {
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
-                <Bars3Icon
+                <MenuIcon
                   aria-hidden="true"
                   className="block size-6 group-data-open:hidden"
                 />
-                <XMarkIcon
+                <XIcon
                   aria-hidden="true"
                   className="hidden size-6 group-data-open:block"
                 />
@@ -82,7 +83,7 @@ export default function App() {
         </div>
 
         {/* Menu Mobile (quando a tela é pequena) */}
-        <DisclosurePanel className="sm:hidden">
+  <DisclosurePanel className="sm:hidden mt-16 bg-[#091328]/80">
           <div className="space-y-1 px-2 pb-3 pt-2">
             {navigation.map((item) => (
               <DisclosureButton
@@ -105,12 +106,14 @@ export default function App() {
       </Disclosure>
 
       {/* ÁREA ONDE AS PÁGINAS VÃO APARECER */}
+      <main className="">
       <main>
         <Routes>
           <Route path="/" element={<UserManagement />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
+          <Route path="/diagnostic" element={<DiagnosticReport></DiagnosticReport>} />
         </Routes>
       </main>
     </BrowserRouter>
