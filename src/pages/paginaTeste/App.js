@@ -7,6 +7,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import Main from "../Main/main";
+import DiagnosticReport from "../DiagnosticReport/diagnostic-report";
 import Planos from "../planos/planos";
 
 // 1. Atualizei os 'href' para os caminhos das suas rotas
@@ -27,7 +28,7 @@ export default function App() {
       {/* MENU DE NAVEGAÇÃO */}
       <Disclosure
         as="nav"
-        className="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10"
+        className="fixed top-0 w-full z-50 bg-[#091328]"
       >
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
@@ -81,7 +82,7 @@ export default function App() {
         </div>
 
         {/* Menu Mobile (quando a tela é pequena) */}
-        <DisclosurePanel className="sm:hidden">
+  <DisclosurePanel className="sm:hidden mt-16 bg-[#091328]/80">
           <div className="space-y-1 px-2 pb-3 pt-2">
             {navigation.map((item) => (
               <DisclosureButton
@@ -104,12 +105,14 @@ export default function App() {
       </Disclosure>
 
       {/* ÁREA ONDE AS PÁGINAS VÃO APARECER */}
+      <main className="">
       <main>
         <Routes>
           <Route path="/" element={<Main />} />
           {/* Adicione suas outras rotas aqui de acordo com o menu */}
           <Route path="/team" element={<div>Página do Time</div>} />
           <Route path="/projects" element={<div>Página de Projetos</div>} />
+          <Route path="/diagnostic" element={<DiagnosticReport></DiagnosticReport>} />
         </Routes>
       </main>
     </BrowserRouter>
