@@ -1,7 +1,15 @@
-import { useState } from 'react';
-import { CheckCircleIcon, DownloadIcon, InformationCircleIcon, PencilIcon, PlusIcon } from '@heroicons/react/solid';
+import { useState } from "react";
+import {
+  ArrowDownTrayIcon,
+  CheckCircleIcon,
+  InformationCircleIcon,
+  PencilIcon,
+  PlusIcon,
+} from "@heroicons/react/24/solid";
+import AppFooter from "../../components/layout/AppFooter";
+import { DASHBOARD_STYLES } from "../../styles/dashboardStyles";
 
-function Main() {
+function PlanosPage() {
   const [systems, setSystems] = useState(5);
   const [billingCycle, setBillingCycle] = useState('monthly');
 
@@ -52,8 +60,10 @@ function Main() {
   const estimatedPrice = 349;
 
   return (
-    <div className="bg-[#060e20] text-[#dee5ff] min-h-screen font-sans">
-      <main className="max-w-7xl mx-auto py-24 px-8 min-h-screen space-y-12">
+    <>
+      <style dangerouslySetInnerHTML={{ __html: DASHBOARD_STYLES }} />
+      <div className="bg-[#060e20] text-[#dee5ff] min-h-screen font-sans flex flex-col">
+      <main className="flex-1 max-w-7xl mx-auto py-8 px-8 w-full space-y-12">
         <header className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-3">
@@ -78,7 +88,7 @@ function Main() {
               <p className="text-lg font-bold text-[#a3a6ff]">24 de Outubro, 2024</p>
             </div>
             <div className="w-12 h-12 bg-[#a3a6ff]/10 rounded-full flex items-center justify-center text-[#a3a6ff]">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <i className="fa fa-clock-o" aria-hidden="true"></i>
             </div>
           </div>
         </header>
@@ -223,7 +233,7 @@ function Main() {
                       </td>
                       <td className="px-6 py-4 text-right">
                         <button className="p-2 hover:bg-[#192540] rounded-lg transition-colors">
-                          {item.status === 'Pago' ? <DownloadIcon className="w-5 h-5 text-[#a3aac4]" /> : <InformationCircleIcon className="w-5 h-5 text-[#a3aac4]" />}
+                          {item.status === 'Pago' ? <ArrowDownTrayIcon className="w-5 h-5 text-[#a3aac4]" /> : <InformationCircleIcon className="w-5 h-5 text-[#a3aac4]" />}
                         </button>
                       </td>
                     </tr>
@@ -275,20 +285,11 @@ function Main() {
           </div>
         </div>
       </main>
-      <footer className="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center border-t border-[#40485d]/15 bg-[#060e20] text-[10px] uppercase tracking-[0.1em]">
-        <div className="text-slate-600 mb-6 md:mb-0">
-            © 2024 LogViewer Systems Inc. Engenharia de Precisão para Infraestrutura.
-        </div>
-        <div className="flex gap-8">
-            <a className="text-slate-600 hover:text-indigo-300 transition-opacity" href="#">Política de Privacidade</a>
-            <a className="text-slate-600 hover:text-indigo-300 transition-opacity" href="#">Termos de Serviço</a>
-            <a className="text-slate-600 hover:text-indigo-300 transition-opacity" href="#">Segurança</a>
-            <a className="text-slate-600 hover:text-indigo-300 transition-opacity" href="#">Status</a>
-        </div>
-      </footer>
-    </div>
+      <AppFooter />
+      </div>
+    </>
   );
 }
 
-export default Main;
+export default PlanosPage;
 
